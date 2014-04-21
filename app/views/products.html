@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Products</h1>
+
+  <!--loop through products passed to us and render the "preview" -->
+    <section ng-repeat="product in products" class="product" ng-if="product.Images">
+      <a href="#/products/{{ product.Name | productUrl }}">
+        <img ng-src="{{product.Images[0].Url}}" class="product__img">
+        <div class="product__desc">
+          <h4>{{product.Name}}</h4>
+        </div>
+      </a>
+    </section>
+
+</div>

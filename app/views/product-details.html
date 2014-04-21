@@ -1,0 +1,95 @@
+<div class="container">
+  <section itemscope itemtype="http://schema.org/Product">
+
+    <!--begin google rich snippets data-->
+    <!--TODO: change this one to your company's name-->
+    <meta itemprop="brand" content="Print Site"/>
+    <meta itemprop="model" content="{{ product.Name }}"/>
+    <meta itemprop="name" content="{{ product.Name }}" />
+    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="price" content="{{ product.PriceInfo.Price }}" />
+        <meta itemprop="availability" content="Yes" />
+        <meta itemprop="priceCurrency" content="{{ product.PriceInfo.CurrencyCode }}" />
+    </span>
+
+    <div class="row">
+      <!--the left side/product images-->
+      <section class="col-md-6 product-imgs">
+        <!--the large, primary image-->
+        <img ng-src="{{ featuredImage }}" itemprop="image" class="product-imgs__main js-main-img" />
+
+        <!--the smaller images of the product-->
+        <section class="product-imgs__other">
+            <a href>
+                <img ng-repeat="image in images | limitTo:3" ng-src="{{ image.Url }}" ng-click="setImage(image.Url)" itemprop="image" class="product-imgs__small js-possible-img" />
+            </a>
+        </section>
+      </section>
+
+
+      <section class="col-md-6 product-details">
+        <h1 class="product-details__title">Customizable {{ product.Name }}</h1>
+
+        <p class="product-details__startprice"><em>Starting at {{ product.RetailPrice.FormattedPrice }}</em></p>
+        <p class="product-details__shortdesc">{{ product.ShortDescription }}</p>
+
+        <!--write out the "extra" text content describing the product-->
+        <div ng-repeat="content in product.Info | filter: { ContentType: 'Text' }">
+          <p ng-repeat="text in content.Content">{{text}}</p>
+        </div>
+
+        <div class="text-center product-details__create">
+          <a class="btn btn-primary btn-lg js-pio-open" href ng-click="openPIO()">Create Your Own</a>
+        </div>
+      </section>
+
+    </div>
+    <div class="row secondary-row">
+      <section class="product-list col-md-6">
+        <!--write out the list-style content that describes the product-->
+        <h3 class="product-list__title">Details</h3>
+        <ul class="product-list__list">
+          <li ng-repeat="content in product.Info | filter: { ContentType: 'List' }">
+            <strong>{{ content.Key }}</strong> {{ content.Content[0] }}
+          </li>
+        </ul>
+      </section>
+
+      <!--here we use the shipestimate data from the API-->
+      <section class="product-shipping col-md-6" ng-if="shipEstimate">
+        <h3 class="product-shipping__title">Shipping Info</h3>
+        <li><strong>Est. Arrival</strong> {{ shipEstimate.EstShipDays }} Days</li>
+        <li><strong>Est. Ship</strong> {{ shipEstimate.MinPrice.FormattedPrice }} Days</li>
+        <li><strong>Shipping Information</strong> This item is in stock and ships within three business days.</li>
+        <li><strong>Return Policy</strong> We guarantee satisfaction.</li>
+        <li><strong>Availability</strong> This item ships internationally.</li>
+      </section>
+
+    </div>
+
+    <div class="row secondary-row">
+      <section class="col-md-6 product-social">
+        <h3 class="product-social__title">Social</h3>
+        <div class="product-social__container">
+
+          <!--pinterest-->
+          <a href="//www.pinterest.com/pin/create/button/?url=<%= url %>&media=<%=: images | first | get:'Url' %>&description={{ product.ShortDescription }}" data-pin-do="buttonPin" data-pin-config="above"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+          <!-- Please call pinit.js only once per page -->
+          <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+
+
+          <!--twitter-->
+          <a href="https://twitter.com/share" class="twitter-share-button" style="padding-left:20px;" data-count="vertical" data-lang="en" data-url="{{ $location }}">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+          <!--facebook-->
+          <!--this will not show up until it is deployed to somewhere on the web that FB can touch-->
+          <!--TODO: change the facebook APP id in the index.html file-->
+          <div style="margin-left:20px;" class="fb-share-button" data-href="<%= url %>" data-type="button_count"></div>
+
+        </div>
+      </section>
+    </div>
+  </section>
+</div>

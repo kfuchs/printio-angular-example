@@ -1,0 +1,150 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+
+/**
+*   mobile is the default here!
+*   for tablet/desktop layout features
+*   add them to the media query section at the bottom
+*/
+
+/*product list*/
+.product {
+  display:inline-block;
+  margin:20px 20px 0 20px;
+}
+.product__img {
+  max-height: 300px;
+  max-width:300px;
+}
+.product__desc {
+}
+
+/*product details*/
+.product-header{
+  margin-bottom:20px;
+}
+
+/*product details product images on left side*/
+.product-imgs{
+  margin-top:20px;
+}
+.product-imgs__main{
+  max-width: 100%;
+}
+.product-imgs__other{
+  margin:20px auto 0 auto;
+  text-align: center;
+}
+.product-imgs__small{
+  max-height: 100px;
+  max-width: 100px;
+  display:inline-block;
+  margin:5px;
+}
+
+
+/*product details...... details*/
+.product-details{
+
+}
+
+.product-details__title{
+  text-align: center;
+}
+.product-details__startprice{
+  text-align: center;
+}
+.product-details__shortdesc{
+  text-align: center;
+}
+.product-details__create{
+  margin-top:40px;
+}
+
+.secondary-row{
+  margin-top: 20px;
+}
+
+.product-list{
+
+}
+
+.product-list__title{
+  text-align: center;
+}
+
+.product-shipping{
+  margin-top:40px;
+}
+
+.product-shipping__title{
+  text-align: center;
+}
+
+.product-social__title{
+  text-align: center;
+}
+
+.product-social__container{
+  text-align: center;
+  margin-top:40px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+  .product-details__title{
+    text-align: left;
+  }
+  .product-details__startprice{
+    text-align: left;
+  }
+  .product-details__shortdesc{
+    text-align: left;
+  }
+
+
+  .product-shipping{
+    margin-top:0;
+  }
+
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200) {
+
+
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
