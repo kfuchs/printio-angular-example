@@ -20,7 +20,7 @@ Example of how to build a website based off of the obviously amazing [print.io a
 ## Requirements
 1. That you have nodejs installed
 2. That you have npm installed (usually comes with node but just sayin')
-2. That you have bower installed ( `npm install -g bower` )
+3. That you have bower installed ( `npm install -g bower` )
 
 ## Setup Locally
 1. `cd` to the project root
@@ -28,7 +28,7 @@ Example of how to build a website based off of the obviously amazing [print.io a
 3. run `bower install`
 4. run `grunt serve`
 
-It will now be avalible at `http://localhost:9020` to change the the port see the gruntfile.js in the root directory.
+It will now be available at `http://localhost:9020` to change the the port see the gruntfile.js in the root directory.
 
 ## Building a dist package
 1. `cd` to the project root
@@ -37,11 +37,9 @@ It will now be avalible at `http://localhost:9020` to change the the port see th
 Running `grunt build` generates an optimized version of your application in the `dist/` directory. If you want to further understand the actions above look at [Yeoman](http://yeoman.io/) `&&` [Angular Generator](https://github.com/yeoman/generator-angular)
 
 ## TODOs
-Build tests
-
-Extract the $http calls from the controller and create a printio service
 
 Search the codebase for "TODO" to find small items one should take care of before deploying to production (like changing facebook app ID, adding in print.io api key, etc).
 
+This project also needs tests, and further documentation. Currently it only has generated placeholder test files. 
 
 *License === MIT*
